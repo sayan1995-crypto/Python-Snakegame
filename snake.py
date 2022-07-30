@@ -13,6 +13,7 @@ class Snake:
         self.snake_segment = list()
         self.__create_snake_body()
         self.head = self.snake_segment[0]
+        self.head.color("blue")
         self.tail=self.snake_segment[2]
 
     def __create_snake_body(self):
@@ -53,6 +54,16 @@ class Snake:
         new_square.goto(x=self.tail.xcor(), y=self.tail.ycor())
         self.snake_segment.append(new_square)
         self.tail = new_square
+
+    def collide_with_itself(self):
+        for part in self.snake_segment[1:]:
+            if part.distance(self.head) < 10:
+                print("collide")
+                return True
+        return False
+
+    def collide_with_wall(self):
+        if(self.head.)
 
 
 
